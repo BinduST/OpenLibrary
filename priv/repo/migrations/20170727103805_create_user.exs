@@ -10,5 +10,6 @@ defmodule Openlibrary.Repo.Migrations.CreateUser do
       timestamps()
     end
 
+    create unique_index(:users, :employee_id)
   end
 end

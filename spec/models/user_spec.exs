@@ -15,4 +15,12 @@ defmodule UserSpec do
         expect(changeset.valid?).to be_false()
     end
 
+    # it "employee_id already exists in the system" do
+    #     changeset1 = User.changeset(%User{}, %{employee_id: 1, first_name: "FirstName", last_name: "LastName"})
+    #     expect(changeset1.valid?).to be_true()
+    #     Openlibrary.Repo.insert(changeset1)
+    #     changeset2 = User.changeset(%User{}, %{employee_id: 1, first_name: "FirstName", last_name: "LastName"})
+    #     expect(changeset2.valid?).to be_false()
+    # end
+
 end
