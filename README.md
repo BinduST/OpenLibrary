@@ -1,4 +1,5 @@
 # Openlibrary
+[![Build Status](https://travis-ci.org/BinduST/OpenLibrary.svg?branch=master)](https://travis-ci.org/BinduST/OpenLibrary)
 
 To start your Phoenix app:
 
