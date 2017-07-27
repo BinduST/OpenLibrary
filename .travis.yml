@@ -11,7 +11,7 @@ services:
 env: MIX_ENV=test
 
 notifications:
-  email: false
+  email: true
 
 before_script:
   - mix do ecto.create, ecto.migrate
