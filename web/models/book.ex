@@ -7,15 +7,20 @@ defmodule Openlibrary.Book do
     field :author, :string
     field :photo_remote_url, :string
 
+    has_many(:book_copies, Openlibrary.BookCopy)
+    has_many(:reservations, Openlibrary.Reservation)
+
     timestamps()
   end
+
+  @required_fields [:isbn, :title, :author, :photo_remote_url]
 
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:isbn, :title, :author, :photo_remote_url])
-    |> validate_required([:isbn, :title, :author, :photo_remote_url])
+    |> cast(params, @required_fields)
+    |> validate_required(@required_fields)
   end
 end
