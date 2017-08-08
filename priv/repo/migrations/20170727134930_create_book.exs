@@ -3,13 +3,12 @@ defmodule Openlibrary.Repo.Migrations.CreateBook do
 
   def change do
     create table(:books) do
-      add :isbn, :string
-      add :title, :string
-      add :author, :string
-      add :photo_remote_url, :string
+      add :serial_no, :string
+      add :state, :string
+      add :title_id, references(:titles)
 
       timestamps()
-    end
 
+    end
   end
 end

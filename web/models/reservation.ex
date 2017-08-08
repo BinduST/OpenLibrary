@@ -2,13 +2,11 @@ defmodule Openlibrary.Reservation do
   use Openlibrary.Web, :model
 
   schema "reservations" do
-    field :created_on, Ecto.Date
-    field :updated_on, Ecto.Date
+
+    belongs_to :book, Openlibrary.Book
+    belongs_to :user, Openlibrary.User
 
     timestamps()
-
-    belongs_to(:books, Openlibrary.Book)
-    belongs_to(:users, Openlibrary.User)
   end
 
   @doc """
@@ -16,7 +14,7 @@ defmodule Openlibrary.Reservation do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:created_on, :updated_on])
-    |> validate_required([:created_on, :updated_on])
+    |> cast(params, [:book_id, :user_id])
+    |> validate_required([:book_id, :user_id])
   end
 end

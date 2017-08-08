@@ -3,8 +3,8 @@ defmodule Openlibrary.Repo.Migrations.CreateReservation do
 
   def change do
     create table(:reservations) do
-      add :created_on, :date
-      add :updated_on, :date
+      add :book_id, references(:books)
+      add :user_id, references(:users)
 
       timestamps()
     end

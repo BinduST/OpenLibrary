@@ -6,6 +6,8 @@ defmodule Openlibrary.User do
     field :first_name, :string
     field :last_name, :string
 
+    has_many(:reservations, Openlibrary.Reservation)
+
     timestamps()
   end
 

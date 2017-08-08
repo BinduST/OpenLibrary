@@ -2,7 +2,7 @@ defmodule BookSpec do
     use ESpec
     alias Openlibrary.Book
 
-    @valid_attrs %{author: "some author", isbn: "some isbn", photo_remote_url: "some url", title: "some title"}
+    @valid_attrs %{serial_no: "1-1", state: "available", title_id: 1}
     @invalid_attrs %{}
 
     it "changeset with valid attributes" do
