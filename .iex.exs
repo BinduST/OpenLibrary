@@ -1,2 +1,2 @@
 import Ecto.Query
-alias Openlibrary.{Repo, User, Title, Book, Reservation}
+alias Openlibrary.{Repo, User, Book, Reservation}

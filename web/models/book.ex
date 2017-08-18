@@ -2,21 +2,25 @@ defmodule Openlibrary.Book do
   use Openlibrary.Web, :model
 
   schema "books" do
-    field :serial_no, :string
-    field :state, :string
+      field :isbn, :string
+      field :title, :string
+      field :author, :string
+      field :photo_remote_url, :string
+      field :no_of_copies, :integer
 
-    belongs_to :title, Openlibrary.Title
-    has_many :reservations, Openlibrary.Reservation
-    timestamps()
+      has_many(:reservations, Openlibrary.Reservation)
 
-  end
+      timestamps()
+    end
 
-  @doc """
-  Builds a changeset based on the `struct` and `params`.
-  """
-  def changeset(struct, params \\ %{}) do
-    struct
-    |> cast(params, [:serial_no, :state, :title_id])
-    |> validate_required([:serial_no, :state, :title_id])
-  end
+    @required_fields [:isbn, :title, :author, :photo_remote_url, :no_of_copies]
+
+    @doc """
+    Builds a changeset based on the `struct` and `params`.
+    """
+    def changeset(struct, params \\ %{}) do
+      struct
+      |> cast(params, @required_fields)
+      |> validate_required(@required_fields)
+    end
 end
