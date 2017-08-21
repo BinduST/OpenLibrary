@@ -12,7 +12,7 @@ defmodule Openlibrary.Repo.Migrations.CreateBook do
       timestamps()
     end
 
-    create index(:books, :isbn)
+    create unique_index(:books, :isbn)
 
   end
 end

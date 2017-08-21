@@ -1,0 +1,28 @@
+<h2>Listing reservations</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Book</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for reservation <- @reservations do %>
+    <tr>
+      <td><%= reservation.user_id %></td>
+      <td><%= reservation.book_id %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: reservation_path(@conn, :show, reservation), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: reservation_path(@conn, :edit, reservation), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: reservation_path(@conn, :delete, reservation), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New reservation", to: reservation_path(@conn, :new) %>

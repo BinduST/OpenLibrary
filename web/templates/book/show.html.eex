@@ -1,0 +1,34 @@
+<h2>Show book</h2>
+
+<ul>
+
+  <li>
+    <strong>Isbn:</strong>
+    <%= @book.isbn %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @book.title %>
+  </li>
+
+  <li>
+    <strong>Author:</strong>
+    <%= @book.author %>
+  </li>
+
+  <li>
+    <strong>Photo remote url:</strong>
+    <%= @book.photo_remote_url %>
+  </li>
+
+  <li>
+    <strong>No of copies:</strong>
+    <%= @book.no_of_copies %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: book_path(@conn, :edit, @book) %>
+<%= link "Back", to: book_path(@conn, :index) %>
+<%= link "Borrow", to: book_path(@conn, :new) %>

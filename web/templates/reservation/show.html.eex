@@ -1,0 +1,18 @@
+<h2>Show reservation</h2>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @reservation.user_id %>
+  </li>
+
+  <li>
+    <strong>Book:</strong>
+    <%= @reservation.book_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: reservation_path(@conn, :edit, @reservation) %>
+<%= link "Back", to: reservation_path(@conn, :index) %>

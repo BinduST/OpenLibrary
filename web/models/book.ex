@@ -22,5 +22,6 @@ defmodule Openlibrary.Book do
       struct
       |> cast(params, @required_fields)
       |> validate_required(@required_fields)
+      |> unique_constraint(:isbn)
     end
 end

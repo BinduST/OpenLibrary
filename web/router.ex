@@ -19,6 +19,7 @@ defmodule Openlibrary.Router do
     get "/", PageController, :index
     resources "/users", UserController
     resources "/books", BookController
+    resources "/reservations", ReservationController
   end
 
   # Other scopes may use custom stacks.
