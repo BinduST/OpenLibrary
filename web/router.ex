@@ -18,6 +18,7 @@ defmodule Openlibrary.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+    get "/books/:id/borrow", BookController, :borrow
     resources "/books", BookController
     resources "/reservations", ReservationController
   end

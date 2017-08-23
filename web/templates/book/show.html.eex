@@ -31,4 +31,4 @@
 
 <%= link "Edit", to: book_path(@conn, :edit, @book) %>
 <%= link "Back", to: book_path(@conn, :index) %>
-<%= link "Borrow", to: book_path(@conn, :new) %>
+<%= link "Borrow", to: book_path(@conn, :borrow, @book.id) %>

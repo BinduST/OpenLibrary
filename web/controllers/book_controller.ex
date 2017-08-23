@@ -2,6 +2,7 @@ defmodule Openlibrary.BookController do
   use Openlibrary.Web, :controller
 
   alias Openlibrary.Book
+  alias Openlibrary.Reservation
 
   def index(conn, _params) do
     books = Repo.all(Book)
@@ -61,5 +62,17 @@ defmodule Openlibrary.BookController do
     conn
     |> put_flash(:info, "Book deleted successfully.")
     |> redirect(to: book_path(conn, :index))
+  end
+
+  def borrow(conn, %{"id" => id}) do
+      reservation = Reservation.changeset(%Reservation{}, %{book_id: id, user_id: 1})
+      case Repo.insert(reservation) do
+        {:ok, _reservations} ->
+          conn
+          |> put_flash(:info, "Reserved book successfully.")
+          |> redirect(to: reservation_path(conn, :index))
+        {:error, changeset} ->
+          render(conn, "new.html", changeset: changeset)
+      end
   end
 end
